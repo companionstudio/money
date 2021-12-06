@@ -34,7 +34,7 @@ describe SpookAndPuff::MoneyAttributes do
   end
 
   before(:each) do
-    @model = TestModel.new(:foo => BigDecimal.new('23.40'))
+    @model = TestModel.new(:foo => BigDecimal('23.40'))
   end
 
   it 'should coerce a String into Money' do
@@ -43,7 +43,7 @@ describe SpookAndPuff::MoneyAttributes do
   end
 
   it 'should coerce a BigDecimal into Money' do
-    @model.bar = BigDecimal.new('43.98')
+    @model.bar = BigDecimal('43.98')
     expect(@model.bar).to eq(money('43.98'))
   end
 
@@ -79,6 +79,6 @@ describe SpookAndPuff::MoneyAttributes do
 
   it 'should set the underlying attribute to a BigDecimal' do
     @model.bar = '120.43'
-    expect(@model[:bar]).to eq(BigDecimal.new('120.43'))
+    expect(@model[:bar]).to eq(BigDecimal('120.43'))
   end
 end

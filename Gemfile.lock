@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spook_and_puff_money (1.0.2)
+    spook_and_puff_money (1.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -28,4 +28,4 @@ DEPENDENCIES
   yard (= 0.9.20)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3

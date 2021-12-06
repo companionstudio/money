@@ -25,7 +25,7 @@ module SpookAndPuff
       @raw = case value
       when SpookAndPuff::Money then value.raw
       when BigDecimal then value
-      when String     then BigDecimal.new(value.gsub(/\$/, ''))
+      when String     then BigDecimal(value.gsub(/\$/, ''))
       else raise TypeError.new("Money can only be initalized with a BigDecimal or String not #{value.class}.")
       end
     end
@@ -135,7 +135,7 @@ module SpookAndPuff
     #
     # @return BigDecimal
     def cents
-      @raw * BigDecimal.new('100')
+      @raw * BigDecimal('100')
     end
 
     # Returns the raw BigDecimal value.
@@ -181,7 +181,7 @@ module SpookAndPuff
     #
     # @raise TypeError
     def percent(percentage)
-      Money.new(@raw * (coerce(percentage) / BigDecimal.new('100')))
+      Money.new(@raw * (coerce(percentage) / BigDecimal('100')))
     end
 
     # Calculates the proportion of the provided amount as a percentage.
@@ -263,8 +263,8 @@ module SpookAndPuff
     def coerce(other)
       case other
       when BigDecimal then other
-      when String then BigDecimal.new(other)
-      when Integer, Fixnum, Bignum then BigDecimal.new(other.to_s)
+      when String then BigDecimal(other)
+      when Integer, Fixnum, Bignum then BigDecimal(other.to_s)
       else raise TypeError
       end
     end

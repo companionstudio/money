@@ -84,14 +84,14 @@ describe SpookAndPuff::Money do
   end
 
   it "should calculate proportion as percentage" do
-    expect(money('200').proportion(money('50'))).to eq(BigDecimal.new('25'))
+    expect(money('200').proportion(money('50'))).to eq(BigDecimal('25'))
   end
 
   it "should return the value in cents" do
-    expect(money('10.20').cents).to eq(BigDecimal.new('1020'))
-    expect(money('0.5').cents).to eq(BigDecimal.new('50'))
-    expect(money('-20.34').cents).to eq(BigDecimal.new('-2034'))
-    expect(money('0').cents).to eq(BigDecimal.new('0'))
+    expect(money('10.20').cents).to eq(BigDecimal('1020'))
+    expect(money('0.5').cents).to eq(BigDecimal('50'))
+    expect(money('-20.34').cents).to eq(BigDecimal('-2034'))
+    expect(money('0').cents).to eq(BigDecimal('0'))
   end
 
   it "should check for zero value" do
